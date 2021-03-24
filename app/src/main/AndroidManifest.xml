@@ -5,7 +5,7 @@
         android:icon="@android:mipmap/sym_def_app_icon"
         android:label="JetpackComposeDemo"
         android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen">
-        <activity android:name=".MainActivity">
+        <activity android:name=".WeChatActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
