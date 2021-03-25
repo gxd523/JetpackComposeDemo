@@ -1,4 +1,4 @@
-package com.demo.compose.ui
+package com.demo.compose.ui.chat
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.spring
@@ -34,6 +34,8 @@ import com.demo.compose.WeViewModel
 import com.demo.compose.data.Chat
 import com.demo.compose.data.Msg
 import com.demo.compose.data.User
+import com.demo.compose.ui.HomeBottomBar
+import com.demo.compose.ui.WeTopBar
 import com.demo.compose.ui.theme.WeTheme
 import kotlinx.coroutines.delay
 

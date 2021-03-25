@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.layout
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.demo.compose.WeViewModel
+import com.demo.compose.ui.chat.ChatDetail
 import com.demo.compose.ui.chat.ChatList
 import com.demo.compose.ui.contact.ContactPage
 import com.demo.compose.ui.discovery.DiscoveryPage
