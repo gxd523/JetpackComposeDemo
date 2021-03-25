@@ -65,7 +65,7 @@ fun WeTopBar(title: String, onBack: (() -> Unit)? = null) {
 }
 
 @Composable
-fun WeBottomBar(modifier: Modifier = Modifier, content: @Composable RowScope.() -> Unit) {
+fun HomeBottomBar(modifier: Modifier = Modifier, content: @Composable RowScope.() -> Unit) {
     Row(
         modifier
             .fillMaxWidth()

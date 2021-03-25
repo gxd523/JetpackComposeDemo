@@ -1,4 +1,4 @@
-package com.demo.compose.ui
+package com.demo.compose.ui.chat
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.demo.compose.WeViewModel
 import com.demo.compose.data.Chat
+import com.demo.compose.ui.WeTopBar
 import com.demo.compose.ui.theme.WeTheme
 import com.demo.compose.util.yes
 
@@ -64,7 +65,7 @@ private fun ChatListItem(chat: Chat) {
             modifier = Modifier
                 .padding(8.dp)
                 .size(48.dp)
-                .unread(!chat.msgs.last().read, WeTheme.colors.badge)
+                .unread(!chat.msgList.last().read, WeTheme.colors.badge)
                 .clip(RoundedCornerShape(4.dp))
         )
         Column(
@@ -78,13 +79,13 @@ private fun ChatListItem(chat: Chat) {
                 color = WeTheme.colors.textPrimary
             )
             Text(
-                text = chat.msgs.last().text,
+                text = chat.msgList.last().text,
                 fontSize = 14.sp,
                 color = WeTheme.colors.textSecondary
             )
         }
         Text(
-            chat.msgs.last().time,
+            chat.msgList.last().time,
             Modifier.padding(8.dp, 8.dp, 12.dp, 8.dp),
             fontSize = 11.sp,
             color = WeTheme.colors.textSecondary

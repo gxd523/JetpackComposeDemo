@@ -9,9 +9,9 @@ import com.demo.compose.data.Chat
 import com.demo.compose.data.Msg
 import com.demo.compose.data.User
 import com.demo.compose.ui.theme.WeTheme
+import com.demo.compose.util.simpleFormat
 
 class WeViewModel : ViewModel() {
-    var selectedTab by mutableStateOf(0)
     var theme by mutableStateOf(WeTheme.Theme.Light)
     var chatList by mutableStateOf(
         listOf(
@@ -47,5 +47,18 @@ class WeViewModel : ViewModel() {
 
     fun endChat() {
         chatting = false
+    }
+
+    fun boom(chat: Chat) {
+        chat.msgList.add(
+            Msg(User.Me, "\uD83D\uDCA3", System.currentTimeMillis().simpleFormat())
+                .apply { read = true }
+        )
+    }
+
+    fun read(chat: Chat) {
+        for (msg in chat.msgList) {
+            msg.read = true
+        }
     }
 }

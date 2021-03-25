@@ -14,24 +14,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.demo.compose.R
-import com.demo.compose.WeViewModel
 import com.demo.compose.ui.theme.WeTheme
 
 @Composable
-fun WeBottomBar(selected: Int) {
+fun HomeBottomBar(selected: Int, onTabItemClick: (Int) -> Unit) {
     Row(Modifier.background(WeTheme.colors.bottomBar)) {
-        val viewModel: WeViewModel = viewModel()
         TabItem(
             if (selected == 0) R.drawable.ic_chat_filled else R.drawable.ic_chat_outlined,
             "聊天",
             if (selected == 0) WeTheme.colors.iconCurrent else WeTheme.colors.icon,
             Modifier
-                .clickable { viewModel.selectedTab = 0 }
+                .clickable { onTabItemClick(0) }
                 .weight(1f)
         )
         TabItem(
@@ -39,7 +35,7 @@ fun WeBottomBar(selected: Int) {
             "通讯录",
             if (selected == 1) WeTheme.colors.iconCurrent else WeTheme.colors.icon,
             Modifier
-                .clickable { viewModel.selectedTab = 1 }
+                .clickable { onTabItemClick(1) }
                 .weight(1f)
         )
         TabItem(
@@ -47,7 +43,7 @@ fun WeBottomBar(selected: Int) {
             "发现",
             if (selected == 2) WeTheme.colors.iconCurrent else WeTheme.colors.icon,
             Modifier
-                .clickable { viewModel.selectedTab = 2 }
+                .clickable { onTabItemClick(2) }
                 .weight(1f)
         )
         TabItem(
@@ -55,7 +51,7 @@ fun WeBottomBar(selected: Int) {
             "我",
             if (selected == 3) WeTheme.colors.iconCurrent else WeTheme.colors.icon,
             Modifier
-                .clickable { viewModel.selectedTab = 3 }
+                .clickable { onTabItemClick(3) }
                 .weight(1f)
         )
     }
@@ -80,29 +76,5 @@ private fun TabItem(
             modifier = Modifier.size(24.dp)
         )
         Text(title, fontSize = 11.sp, color = tint)
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun WeBottomBarPreview() {
-    WeTheme(WeTheme.Theme.Light) {
-        WeBottomBar(1)
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun WeBottomBarDarkPreview() {
-    WeTheme(WeTheme.Theme.Dark) {
-        WeBottomBar(1)
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun WeBottomBarNewYearPreview() {
-    WeTheme(WeTheme.Theme.NewYear) {
-        WeBottomBar(1)
     }
 }
